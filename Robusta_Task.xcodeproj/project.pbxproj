@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		27E6942D26A305FA00885EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6942C26A305FA00885EB2 /* AppDelegate.swift */; };
 		27E6942F26A305FA00885EB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6942E26A305FA00885EB2 /* SceneDelegate.swift */; };
-		27E6943126A305FA00885EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6943026A305FA00885EB2 /* ViewController.swift */; };
-		27E6943426A305FA00885EB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6943226A305FA00885EB2 /* Main.storyboard */; };
 		27E6943626A3060400885EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E6943526A3060400885EB2 /* Assets.xcassets */; };
 		27E6943926A3060400885EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E6943726A3060400885EB2 /* LaunchScreen.storyboard */; };
 		27E6944926A3087900885EB2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6944326A3087900885EB2 /* Result.swift */; };
@@ -38,8 +36,6 @@
 		27E6942926A305FA00885EB2 /* Robusta_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Robusta_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E6942C26A305FA00885EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E6942E26A305FA00885EB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27E6943026A305FA00885EB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		27E6943326A305FA00885EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27E6943526A3060400885EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27E6943826A3060400885EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27E6943A26A3060400885EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,15 +90,10 @@
 		27E6942B26A305FA00885EB2 /* Robusta_Task */ = {
 			isa = PBXGroup;
 			children = (
+				27E694FF26A34C6400885EB2 /* App */,
+				27E694FD26A34C3800885EB2 /* SupportingFiles */,
 				27E694AB26A3093700885EB2 /* Epics */,
 				27E6944226A3084C00885EB2 /* DataLayer */,
-				27E6942C26A305FA00885EB2 /* AppDelegate.swift */,
-				27E6942E26A305FA00885EB2 /* SceneDelegate.swift */,
-				27E6943026A305FA00885EB2 /* ViewController.swift */,
-				27E6943226A305FA00885EB2 /* Main.storyboard */,
-				27E6943526A3060400885EB2 /* Assets.xcassets */,
-				27E6943726A3060400885EB2 /* LaunchScreen.storyboard */,
-				27E6943A26A3060400885EB2 /* Info.plist */,
 			);
 			path = Robusta_Task;
 			sourceTree = "<group>";
@@ -198,7 +189,6 @@
 		27E694F326A335EC00885EB2 /* RepositoyDetails */ = {
 			isa = PBXGroup;
 			children = (
-				27E694F526A335FF00885EB2 /* Presenter */,
 				27E694F426A335F600885EB2 /* View */,
 			);
 			path = RepositoyDetails;
@@ -213,11 +203,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		27E694F526A335FF00885EB2 /* Presenter */ = {
+		27E694FD26A34C3800885EB2 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				27E6943726A3060400885EB2 /* LaunchScreen.storyboard */,
+				27E6943A26A3060400885EB2 /* Info.plist */,
+				27E6943526A3060400885EB2 /* Assets.xcassets */,
 			);
-			path = Presenter;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		27E694FF26A34C6400885EB2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				27E6942C26A305FA00885EB2 /* AppDelegate.swift */,
+				27E6942E26A305FA00885EB2 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +284,6 @@
 				27E694CF26A30B0100885EB2 /* Repository.storyboard in Resources */,
 				27E6943626A3060400885EB2 /* Assets.xcassets in Resources */,
 				27E694E426A3119F00885EB2 /* RepositoryCell.xib in Resources */,
-				27E6943426A305FA00885EB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E6943126A305FA00885EB2 /* ViewController.swift in Sources */,
 				27E694A526A308D500885EB2 /* CachedWebClient.swift in Sources */,
 				27E694E826A312F800885EB2 /* RepositoryPresenter.swift in Sources */,
 				27E6944D26A3087900885EB2 /* WebError.swift in Sources */,
@@ -318,14 +318,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		27E6943226A305FA00885EB2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27E6943326A305FA00885EB2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		27E6943726A3060400885EB2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -460,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6H89YD2LS;
-				INFOPLIST_FILE = Robusta_Task/Info.plist;
+				INFOPLIST_FILE = Robusta_Task/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,7 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6H89YD2LS;
-				INFOPLIST_FILE = Robusta_Task/Info.plist;
+				INFOPLIST_FILE = Robusta_Task/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

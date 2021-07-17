@@ -11,7 +11,7 @@ import UIKit
 class RepositoryDataSource: NSObject , UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var items: [RepositoryResponse]?
-    var didSelectStoreItemCompletion: (() -> Void)?
+    var didSelectStoreItemCompletion: ((RepositoryResponse?) -> Void)?
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width:collectionView.frame.size.width, height:0.0)
@@ -39,7 +39,7 @@ class RepositoryDataSource: NSObject , UICollectionViewDataSource, UICollectionV
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
-         didSelectStoreItemCompletion?()
+        didSelectStoreItemCompletion?(items?[indexPath.row])
 
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class RepositoryCell: UICollectionViewCell {
 
+    @IBOutlet weak var userType: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var repoNameLabel: UILabel!
@@ -23,6 +24,7 @@ class RepositoryCell: UICollectionViewCell {
         idLabel.text = "\(index)"
         repoNameLabel.text = repo.name ?? ""
         ownerNameLabel.text = repo.full_name ?? ""
+        userType.text = repo.owner?.type ?? ""
         ownerAvatarImageView.downloaded(from: repo.owner?.avatar_url ?? "" )
 
 

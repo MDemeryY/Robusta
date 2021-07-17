@@ -57,7 +57,11 @@ class RepositoryViewController: UIViewController {
         self.collectionView.dataSource = repositoryDataSource
         self.collectionView.reloadData()
         
-        repositoryDataSource.didSelectStoreItemCompletion = {[weak self] in
+        repositoryDataSource.didSelectStoreItemCompletion = {[weak self] repo in
+            
+            let detailsVC = UIStoryboard(name: "RepositoryDetails", bundle: nil).instantiateViewController(withIdentifier: "RepositoryDetailsViewController") as! RepositoryDetailsViewController
+            detailsVC.repo = repo
+            self?.navigationController?.pushViewController(detailsVC, animated: true)
             
         }
     }

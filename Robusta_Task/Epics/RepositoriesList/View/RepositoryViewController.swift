@@ -166,7 +166,7 @@ extension RepositoryViewController:UISearchBarDelegate {
         
         filterdRepos = searchText.isEmpty ? repos : repos.filter({(repo: RepositoryResponse) -> Bool in
                // If dataItem matches the searchText, return true to include it
-            let result = ((repo.name.range(of: searchText.lowercased(), options: .caseInsensitive) != nil))
+            let result = ((repo.name?.range(of: searchText.lowercased(), options: .caseInsensitive) != nil))
             return result
            })
         

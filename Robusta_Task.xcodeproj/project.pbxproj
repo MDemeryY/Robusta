@@ -30,6 +30,8 @@
 		27E694E326A3119F00885EB2 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694E126A3119F00885EB2 /* RepositoryCell.swift */; };
 		27E694E426A3119F00885EB2 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27E694E226A3119F00885EB2 /* RepositoryCell.xib */; };
 		27E694E826A312F800885EB2 /* RepositoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694E726A312F800885EB2 /* RepositoryPresenter.swift */; };
+		27E694F826A3362100885EB2 /* RepositoryDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E694F726A3362100885EB2 /* RepositoryDetails.storyboard */; };
+		27E694FB26A3364C00885EB2 /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E694FA26A3364C00885EB2 /* RepositoryDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		27E694E126A3119F00885EB2 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		27E694E226A3119F00885EB2 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		27E694E726A312F800885EB2 /* RepositoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryPresenter.swift; sourceTree = "<group>"; };
+		27E694F726A3362100885EB2 /* RepositoryDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetails.storyboard; sourceTree = "<group>"; };
+		27E694FA26A3364C00885EB2 /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		27E694AB26A3093700885EB2 /* Epics */ = {
 			isa = PBXGroup;
 			children = (
+				27E694F326A335EC00885EB2 /* RepositoyDetails */,
 				27E694AC26A3094900885EB2 /* RepositoriesList */,
 			);
 			path = Epics;
@@ -190,6 +195,31 @@
 			path = Datasource;
 			sourceTree = "<group>";
 		};
+		27E694F326A335EC00885EB2 /* RepositoyDetails */ = {
+			isa = PBXGroup;
+			children = (
+				27E694F526A335FF00885EB2 /* Presenter */,
+				27E694F426A335F600885EB2 /* View */,
+			);
+			path = RepositoyDetails;
+			sourceTree = "<group>";
+		};
+		27E694F426A335F600885EB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27E694F726A3362100885EB2 /* RepositoryDetails.storyboard */,
+				27E694FA26A3364C00885EB2 /* RepositoryDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27E694F526A335FF00885EB2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27E6943926A3060400885EB2 /* LaunchScreen.storyboard in Resources */,
+				27E694F826A3362100885EB2 /* RepositoryDetails.storyboard in Resources */,
 				27E694CF26A30B0100885EB2 /* Repository.storyboard in Resources */,
 				27E6943626A3060400885EB2 /* Assets.xcassets in Resources */,
 				27E694E426A3119F00885EB2 /* RepositoryCell.xib in Resources */,
@@ -273,6 +304,7 @@
 				27E694B726A309F500885EB2 /* CustomError.swift in Sources */,
 				27E694CB26A30AEC00885EB2 /* RepositoryViewController.swift in Sources */,
 				27E694E326A3119F00885EB2 /* RepositoryCell.swift in Sources */,
+				27E694FB26A3364C00885EB2 /* RepositoryDetailsViewController.swift in Sources */,
 				27E6944E26A3087900885EB2 /* Reachability.swift in Sources */,
 				27E6944A26A3087900885EB2 /* Resource.swift in Sources */,
 				27E6942F26A305FA00885EB2 /* SceneDelegate.swift in Sources */,

@@ -27,10 +27,7 @@ final class Reachability {
         
         return isNetworkReachable(with: flags)
     }
-    
-    /**
-     Source: https://www.youtube.com/watch?v=AoSGcDNmbxo
-     */
+
     private class func isNetworkReachable(with flags: SCNetworkReachabilityFlags) -> Bool {
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)

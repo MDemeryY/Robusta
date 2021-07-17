@@ -153,10 +153,10 @@
 		27E694BD26A30A4300885EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27E694C826A30ACA00885EB2 /* Cells */,
 				27E694D626A310F700885EB2 /* Datasource */,
 				27E694CA26A30AEC00885EB2 /* RepositoryViewController.swift */,
 				27E694CE26A30B0100885EB2 /* Repository.storyboard */,
-				27E694C826A30ACA00885EB2 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";

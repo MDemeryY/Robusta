@@ -48,27 +48,46 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="BGl-Yh-hmG">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hV-XM-R4B">
+                                <rect key="frame" x="370" y="69.5" width="20" height="22"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchBtnTapped:" destination="Mxr-Dh-brv" eventType="touchUpInside" id="Cgf-HI-JeF"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iED-oj-lpe">
+                                <rect key="frame" x="16" y="52" width="338" height="57"/>
+                                <color key="backgroundColor" red="0.97647720579999997" green="0.9764588475" blue="0.97647124529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xKT-Q8-AQx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="M6V-oE-zRC" firstAttribute="leading" secondItem="xKT-Q8-AQx" secondAttribute="leading" constant="10" id="74z-tk-qR1"/>
                             <constraint firstItem="xKT-Q8-AQx" firstAttribute="bottom" secondItem="M6V-oE-zRC" secondAttribute="bottom" id="9oI-J7-UNH"/>
+                            <constraint firstItem="1hV-XM-R4B" firstAttribute="centerY" secondItem="yV7-Qe-3Av" secondAttribute="centerY" id="AJy-OS-gHN"/>
+                            <constraint firstItem="xKT-Q8-AQx" firstAttribute="trailing" secondItem="1hV-XM-R4B" secondAttribute="trailing" constant="24" id="AWV-4E-BJ1"/>
+                            <constraint firstItem="mK9-vC-KIc" firstAttribute="top" secondItem="iED-oj-lpe" secondAttribute="bottom" constant="8" id="CdD-VE-LGI"/>
+                            <constraint firstItem="iED-oj-lpe" firstAttribute="leading" secondItem="xKT-Q8-AQx" secondAttribute="leading" constant="16" id="E5n-0Z-Vyq"/>
                             <constraint firstItem="mK9-vC-KIc" firstAttribute="top" secondItem="yV7-Qe-3Av" secondAttribute="bottom" constant="24" id="V1S-i8-Zy2"/>
                             <constraint firstItem="xKT-Q8-AQx" firstAttribute="trailing" secondItem="M6V-oE-zRC" secondAttribute="trailing" constant="10" id="Vnx-nd-Tdj"/>
                             <constraint firstItem="mK9-vC-KIc" firstAttribute="centerX" secondItem="yV7-Qe-3Av" secondAttribute="centerX" id="d6N-tX-q0T"/>
+                            <constraint firstItem="1hV-XM-R4B" firstAttribute="leading" secondItem="iED-oj-lpe" secondAttribute="trailing" constant="16" id="fqn-sn-OGG"/>
                             <constraint firstItem="BGl-Yh-hmG" firstAttribute="centerY" secondItem="aWB-li-WN2" secondAttribute="centerY" id="hxv-T5-W01"/>
                             <constraint firstItem="M6V-oE-zRC" firstAttribute="top" secondItem="mK9-vC-KIc" secondAttribute="bottom" constant="24" id="iHd-3r-2ke"/>
                             <constraint firstItem="BGl-Yh-hmG" firstAttribute="centerX" secondItem="aWB-li-WN2" secondAttribute="centerX" id="jkD-Ow-QED"/>
                             <constraint firstItem="yV7-Qe-3Av" firstAttribute="centerX" secondItem="xKT-Q8-AQx" secondAttribute="centerX" id="kWe-LC-j2r"/>
                             <constraint firstItem="mK9-vC-KIc" firstAttribute="leading" secondItem="aWB-li-WN2" secondAttribute="leadingMargin" constant="-20" id="kdr-lW-c8j"/>
                             <constraint firstItem="yV7-Qe-3Av" firstAttribute="top" secondItem="xKT-Q8-AQx" secondAttribute="top" constant="24" id="whT-JF-PvK"/>
+                            <constraint firstItem="iED-oj-lpe" firstAttribute="top" secondItem="xKT-Q8-AQx" secondAttribute="top" constant="8" id="zzV-4Y-Bkm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sw2-ag-Lgd"/>
                     <connections>
                         <outlet property="activityIndicator" destination="BGl-Yh-hmG" id="Uk8-wW-ixr"/>
                         <outlet property="collectionView" destination="M6V-oE-zRC" id="Icv-3v-VhA"/>
+                        <outlet property="searchBtn" destination="1hV-XM-R4B" id="Tp0-Cl-zBn"/>
+                        <outlet property="searchView" destination="iED-oj-lpe" id="Rnd-bd-n8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOb-su-x3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,7 +97,7 @@
         <!--Store Item Details View Controller-->
         <scene sceneID="HUK-Ih-cru">
             <objects>
-                <viewController storyboardIdentifier="StoreItemDetailsViewController" id="LUK-VV-E5Q" customClass="StoreItemDetailsViewController" customModule="Bonocle_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreItemDetailsViewController" id="LUK-VV-E5Q" customClass="StoreItemDetailsViewController" customModule="Robusta_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pla-Ck-3zA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,6 +284,7 @@
     <resources>
         <image name="Mask Group" width="65" height="67"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

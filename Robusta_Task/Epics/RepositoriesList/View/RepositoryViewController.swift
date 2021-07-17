@@ -18,10 +18,18 @@ protocol RepositoryViewProtocol: class {
 class RepositoryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchBtn: UIButton!
+    
     var repositoryDataSource = RepositoryDataSource()
     var presenter: RepositoryPresenter?
+    
+    var repos = [RepositoryResponse]()
+    var filterdRepos = [RepositoryResponse]()
 
+    // search bar
+    var leftConstraint: NSLayoutConstraint!
+    let searchBar = UISearchBar()
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -34,18 +42,17 @@ class RepositoryViewController: UIViewController {
         presenter = RepositoryPresenter(view: self)
         activityIndicator.startAnimating()
         presenter?.viewDidLoad()
+        addExpandedSearchBar()
         // Do any additional setup after loading the view.
     }
-    
-    override class func awakeFromNib() {
-    
-    }
+
     
     private func intializeCollectionView(items:[RepositoryResponse]) {
         collectionView.register(UINib(nibName: "RepositoryCell", bundle: .main), forCellWithReuseIdentifier: "RepositoryCell")
 
-        
-        repositoryDataSource.items = items
+        repos = items
+        filterdRepos = items
+        repositoryDataSource.items = filterdRepos
         self.collectionView.delegate = repositoryDataSource
         self.collectionView.dataSource = repositoryDataSource
         self.collectionView.reloadData()
@@ -53,6 +60,23 @@ class RepositoryViewController: UIViewController {
         repositoryDataSource.didSelectStoreItemCompletion = {[weak self] in
             
         }
+    }
+    
+    private func addExpandedSearchBar() {
+        // Search bar.
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
+        searchBar.setShowsCancelButton(false, animated: false)
+        searchBar.delegate = self
+
+        searchView.addSubview(searchBar)
+
+        leftConstraint = searchBar.leftAnchor.constraint(equalTo: searchView.leftAnchor)
+        leftConstraint.isActive = false
+        searchBar.rightAnchor.constraint(equalTo: searchView.rightAnchor).isActive = true
+        searchBar.topAnchor.constraint(equalTo: searchView.topAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: searchView.bottomAnchor).isActive = true
+
     }
     
     private func showErrorAlert(with message: String) {
@@ -75,8 +99,35 @@ class RepositoryViewController: UIViewController {
         }
     }
     
-    private func updateUI() {
+    private func updateUI(repos:[RepositoryResponse]) {
+        repositoryDataSource.items = repos
         collectionView.reloadData()
+    }
+    
+    @IBAction func searchBtnTapped(_ sender: UIButton) {
+        
+        if searchView.isHidden == false {
+            searchBar.text?.removeAll()
+            self.updateUI(repos: repos)
+            searchBtn.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+            searchView.isHidden = true
+            view.endEditing(true)
+        } else {
+            searchBtn.setImage(UIImage(systemName: "x.circle"), for: .normal)
+            searchBar.becomeFirstResponder()
+            searchView.isHidden = false
+        }
+    
+        let isOpen = leftConstraint.isActive == true
+        
+        // Inactivating the left constraint closes the expandable header.
+        leftConstraint.isActive = isOpen ? false : true
+        
+        // Animate change to visible.
+        UIView.animate(withDuration: 0.5, animations: {
+            self.searchView.alpha = isOpen ? 0 : 1
+            self.searchView.layoutIfNeeded()
+        })
     }
 
     /*
@@ -90,7 +141,6 @@ class RepositoryViewController: UIViewController {
     */
 
 }
-
 
 extension RepositoryViewController: RepositoryViewProtocol{
     func onRecivingRepositories(repositories: [RepositoryResponse]) {
@@ -107,5 +157,25 @@ extension RepositoryViewController: RepositoryViewProtocol{
             self.handleError(error)
         }
      
+    }
+}
+
+
+extension RepositoryViewController:UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filterdRepos = searchText.isEmpty ? repos : repos.filter({(repo: RepositoryResponse) -> Bool in
+               // If dataItem matches the searchText, return true to include it
+            let result = ((repo.name.range(of: searchText.lowercased(), options: .caseInsensitive) != nil))
+            return result
+           })
+        
+        DispatchQueue.main.async {
+            self.updateUI(repos: self.filterdRepos)
+
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
     }
 }
